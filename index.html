@@ -1,23 +1,940 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "2027년 최신 제주이사 포장이사 비용 산출 기준 및 견적 비교 가이드",
+      "description": "육지에서 제주도로의 이사 및 제주 도내 이사 견적, 원룸부터 대형 아파트 평형별 예상 운용 요금, 선박 카페리 연계 및 물류 거점별 종합 정보 분석 보고서.",
+      "inLanguage": "ko-KR",
+      "author": {
+        "@type": "Organization",
+        "name": "제주스마트물류연구소"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "한국생활물류정보포털"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jeju-moving.guide/cost-analysis"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "육지에서 제주도로 이동하는 포장이사 비용은 평균 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2027년 기준 수도권에서 제주도로 이동하는 5톤 기본 30평형대 아파트 포장이사 평균 견적은 320만 원에서 450만 원 선으로 형성되어 있습니다. 이는 내륙 육상 운송료, 카페리 선적 화물료, 제주 항만 하역비, 도내 재배송 및 정리 인건비가 일괄 포함된 예상 금액입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "제주 도내에서 동 지역 간 이사할 때 사다리차 이용이 필수인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아닙니다. 제주시 노형동, 연동, 아라동 등 도심권 고층 아파트는 엘리베이터 작업 협약이 우선시되며, 애월읍, 조천읍, 한경면 등의 전원주택 및 타운하우스는 제주 특유의 강한 바람과 전선, 방풍림 간섭으로 인해 사다리차 진입이 불가능한 경우가 많아 엘리베이터나 계단 계단작업 방식을 사전에 협의해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "기상 악화로 여객선 및 화물선이 결항되면 위약금이 발생하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "천재지변 및 풍랑경보로 인한 선박 결항은 공정거래위원회 표준약관상 불가항력 조항에 해당하므로 양측 모두 위약금 부과 대상이 되지 않습니다. 다만 일정 지연에 따른 화물 보관료 발생 여부를 사전 계약 단계에서 확인하는 것이 중요합니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-navy: #1b3a5b;
+            --secondary-teal: #0d828a;
+            --accent-warm: #d97736;
+            --bg-canvas: #f4f7f9;
+            --surface-card: #ffffff;
+            --text-heading: #111827;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --border-line: #cbd5e1;
+            --border-light: #e2e8f0;
+            --table-hover: #f8fafc;
+            --highlight-bg: #eef8f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-canvas);
+            color: var(--text-body);
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--surface-card);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border-bottom: 4px solid var(--secondary-teal);
+        }
+
+        h1 {
+            color: var(--primary-navy);
+            font-size: 2.15em;
+            font-weight: 900;
+            line-height: 1.35;
+            margin-top: 0;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .header-meta {
+            color: var(--text-muted);
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .header-lead {
+            font-size: 1.08em;
+            color: var(--text-body);
+            line-height: 1.75;
+            margin-bottom: 25px;
+        }
+
+        nav.toc-nav {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 18px 24px;
+            margin-top: 25px;
+        }
+
+        nav.toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+        }
+
+        nav.toc-nav a {
+            color: var(--primary-navy);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92em;
+            padding: 5px 12px;
+            border-radius: 6px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-line);
+            transition: all 0.2s ease-in-out;
+            display: inline-block;
+        }
+
+        nav.toc-nav a:hover {
+            background: var(--primary-navy);
+            color: #ffffff;
+            border-color: var(--primary-navy);
+        }
+
+        section, article, .card {
+            background: var(--surface-card);
+            border-radius: 16px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.03);
+            padding: 35px 30px;
+            margin-bottom: 35px;
+            border: 1px solid var(--border-light);
+        }
+
+        h2 {
+            color: var(--primary-navy);
+            font-size: 1.55em;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-light);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 60px;
+            height: 2px;
+            background: var(--secondary-teal);
+        }
+
+        h3 {
+            color: var(--secondary-teal);
+            font-size: 1.25em;
+            font-weight: 700;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1.02em;
+            color: var(--text-body);
+            line-height: 1.85;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .highlight-panel {
+            background-color: var(--highlight-bg);
+            border-left: 5px solid var(--secondary-teal);
+            padding: 20px 24px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0;
+            font-size: 1em;
+            color: #0f4c52;
+        }
+
+        .warning-panel {
+            background-color: #fff9f3;
+            border-left: 5px solid var(--accent-warm);
+            padding: 20px 24px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0;
+            font-size: 1em;
+            color: #7c2d12;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            text-align: left;
+            background: var(--surface-card);
+        }
+
+        th {
+            background-color: #1e3a5f;
+            color: #ffffff;
+            padding: 14px 16px;
+            font-weight: 600;
+            border-right: 1px solid #2d4f7c;
+        }
+
+        th:last-child {
+            border-right: none;
+        }
+
+        td {
+            padding: 13px 16px;
+            border-bottom: 1px solid var(--border-light);
+            border-right: 1px solid var(--border-light);
+            color: var(--text-body);
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--table-hover);
+        }
+
+        tr:hover td {
+            background-color: #f0fdfa;
+        }
+
+        /* Pure CSS Chart */
+        .chart-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid var(--border-line);
+        }
+
+        .chart-title {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .bar-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .bar-label {
+            width: 160px;
+            font-size: 0.88em;
+            font-weight: 600;
+            color: var(--text-heading);
+            flex-shrink: 0;
+        }
+
+        .bar-track {
+            flex-grow: 1;
+            background: #e2e8f0;
+            height: 22px;
+            border-radius: 11px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-teal), var(--primary-navy));
+            border-radius: 11px;
+        }
+
+        .bar-value {
+            width: 100px;
+            text-align: right;
+            font-size: 0.88em;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-left: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Flow Process Cards */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .process-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-line);
+            border-radius: 10px;
+            padding: 18px;
+            border-top: 4px solid var(--secondary-teal);
+        }
+
+        .process-step {
+            font-size: 0.8em;
+            font-weight: 700;
+            color: var(--secondary-teal);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .process-name {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+
+        .process-desc {
+            font-size: 0.9em;
+            color: var(--text-body);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Form */
+        form.quote-form-wrapper {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 30px;
+            margin-top: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-full {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.92em;
+            color: var(--primary-navy);
+        }
+
+        .required-badge {
+            color: #dc2626;
+            font-size: 0.85em;
+            margin-left: 4px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border-line);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95em;
+            color: var(--text-heading);
+            background: #ffffff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--secondary-teal);
+            box-shadow: 0 0 0 3px rgba(13, 130, 138, 0.15);
+            outline: none;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, var(--secondary-teal), var(--primary-navy));
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            margin-top: 15px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        .external-links ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+
+        .external-links li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-light);
+        }
+
+        .external-links li:last-child {
+            border-bottom: none;
+        }
+
+        .external-links a {
+            color: var(--secondary-teal);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.08em;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            color: var(--text-body);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            color: var(--text-muted);
+            font-size: 0.88em;
+            border-top: 1px solid var(--border-light);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.65em; }
+            h2 { font-size: 1.35em; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-full { grid-column: span 1; }
+            .bar-label { width: 110px; font-size: 0.8em; }
+            .bar-value { width: 80px; font-size: 0.8em; }
+            nav.toc-nav ul { justify-content: flex-start; }
+            section, article { padding: 24px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>2027년 최신 제주이사 포장이사 비용 완벽 분석 및 전문 견적 가이드</h1>
+        <div class="header-meta">
+            발행처: 제주스마트물류연구소 | 기술 감수: 한국생활물류정보센터 | 적용 기준: 2027년 해상 물류 운임 지표
+        </div>
+        <p class="header-lead">
+            육지에서 제주로 진입하는 장거리 해상 이사부터 제주 도내 시·군 간 주거 이전까지 완벽한 물류 플랜을 제공합니다. 
+            아파트, 빌라, 단독, 다세대, 주택, 원룸, 투룸, 오피스텔, 사무실 이사 등 건물 형태와 평형대별로 세분화된 
+            포장이사 요금체계를 투명하게 공개하며, 불합리한 위약금과 추가 운임을 사전에 차단하는 법적 검증 절차를 다룹니다.
+        </p>
+        <nav class="toc-nav" aria-label="본문 빠른 이동">
+            <ul>
+                <li><a href="#section-logistics">해상 연계 운송 구조</a></li>
+                <li><a href="#section-pricing">2027 최신 요금표 및 등급표</a></li>
+                <li><a href="#section-regions">제주 권역별 지리적 특성</a></li>
+                <li><a href="#section-strategies">견적 절약 및 온라인 플랫폼 활용</a></li>
+                <li><a href="#section-checklist">계약 시 필수 확인 사항</a></li>
+                <li><a href="#section-faq">자주 묻는 질문(FAQ)</a></li>
+                <li><a href="#section-calculator">실시간 견적 계산기</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Section 1: Logistics Architecture -->
+        <section id="section-logistics">
+            <h2>해상 연계 제주이사 특수성과 운송 메커니즘</h2>
+            <p>
+                제주이사는 일반 내연기관 차량만을 사용하는 내륙 간 이사와 근본적으로 다른 물류 구조를 지닙니다. 
+                육지에서 출발하여 제주로 향하거나 반대로 제주에서 내륙으로 이동하는 화물은 필연적으로 여객 화물선인 대형 카페리(Ro-Ro선) 또는 컨테이너 전용 바지선을 거쳐야 합니다. 
+                이러한 과정은 단순한 용달차나 탑차 이동을 넘어 육상 운송, 항만 반입 및 계선, 해상 선적, 제주항 도착 후 하역 및 양하, 도내 최종 목적지까지의 2차 수송 등 복합 5단계로 전개됩니다.
+            </p>
+            <p>
+                따라서 전체 소요 견적에서 해역 통과에 따른 선적 운임, 부두 사용료, 고박(Lashing) 비용이 큰 비중을 차지합니다. 
+                운송의 안정성을 확보하기 위해서는 5톤 컨테이너 단독 배차 방식인 독차 운송과 소규모 원룸 및 1톤 규모 짐을 모아서 싣는 혼적 운송의 차이점을 명확히 인지해야 합니다. 
+                독차 방식은 분실이나 파손 우려가 적은 가장 확실한 방법이지만 비용이 비교적 높게 산정되며, 알뜰형 혼적 방식은 가격 면에서 제일 저렴한곳을 찾는 1인 가구에 적합하지만 이틀에서 사흘 이상의 운행 시차가 발생할 수 있습니다.
+            </p>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-step">Step 01</div>
+                    <div class="process-name">육지 출발지 포장</div>
+                    <p class="process-desc">내륙 거주지에서 가구 및 가전을 수출용 특수 완충재로 랩핑 및 패킹 작업 진행.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step">Step 02</div>
+                    <div class="process-name">연안 부두 육송</div>
+                    <p class="process-desc">목포, 여수, 완도, 녹동, 삼천포 등 최적 항만 물류 거점으로 화물 차량 직송.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step">Step 03</div>
+                    <div class="process-name">해상 카페리 선적</div>
+                    <p class="process-desc">선박 내 차량 체결 고박 장치 체결 및 풍랑주의보 등 해상 기상 모니터링.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step">Step 04</div>
+                    <div class="process-name">제주항 도착 및 정리</div>
+                    <p class="process-desc">제주항 제6부두 등 하역 완료 후 도내 목적지 아파트 및 주택 내 배치 포장이사 완료.</p>
+                </div>
+            </div>
+
+            <div class="highlight-panel">
+                <strong>전문 물류 가이드:</strong> 제주행 이사화물은 해상 통과 시 염분과 높은 습도, 선체 흔들림에 직접 노출될 수 있으므로 전자기기와 원목 가구는 3중 랩핑 처리가 필수적입니다. 숙련된 이사짐센터 전문 업체를 선정하는 것이 사후 가구 뒤틀림이나 스크래치를 방지하는 핵심입니다.
+            </div>
+        </section>
+
+        <!-- Section 2: Pricing and Data Visualization -->
+        <section id="section-pricing">
+            <h2>2027년 최신 제주이사 비용 요금표 및 등급표 분석</h2>
+            <p>
+                소비자가 가장 궁금해하는 핵심 질문은 바로 내 집의 평형대별 예상 비용이 얼마로 책정되는가입니다. 
+                2027년 기준 통계 데이터에 따르면 물가 상승률과 유류할증료, 선박 운임 변동을 반영한 평균 요금 지표가 새롭게 정립되었습니다. 
+                아래는 서울 및 수도권에서 제주시 및 서귀포시로 이동하는 포장이사 기준 평균 요금표와 도내 이동 시 기준 요금표입니다.
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>주거 형태 및 평형대</th>
+                            <th>화물 적재 톤수</th>
+                            <th>수도권 - 제주 (편도 기준)</th>
+                            <th>제주 도내 이동 (동·읍면 간)</th>
+                            <th>주요 서비스 특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>원룸 및 오피스텔 (10평 이하)</td>
+                            <td>1톤 ~ 1.5톤</td>
+                            <td>1,100,000원 ~ 1,600,000원</td>
+                            <td>450,000원 ~ 700,000원</td>
+                            <td>소형 가전 분해조립, 혼적 운송 가능</td>
+                        </tr>
+                        <tr>
+                            <td>투룸 및 다세대 (15평 ~ 22평)</td>
+                            <td>2.5톤</td>
+                            <td>2,200,000원 ~ 2,900,000원</td>
+                            <td>800,000원 ~ 1,200,000원</td>
+                            <td>전문 패커 2인, 헬퍼 1인 배치</td>
+                        </tr>
+                        <tr>
+                            <td>아파트 및 주택 (25평 ~ 34평)</td>
+                            <td>5톤 탑차 (컨테이너)</td>
+                            <td>3,400,000원 ~ 4,500,000원</td>
+                            <td>1,400,000원 ~ 1,900,000원</td>
+                            <td>전용 독차 배차, 주방 정리 도우미 포함</td>
+                        </tr>
+                        <tr>
+                            <td>대형 아파트 및 단독 (40평 이상)</td>
+                            <td>6톤 ~ 7.5톤 이상</td>
+                            <td>5,000,000원 ~ 6,800,000원</td>
+                            <td>2,100,000원 ~ 3,000,000원</td>
+                            <td>사다리차 작업, 프리미엄 룸클리닝 포함</td>
+                        </tr>
+                        <tr>
+                            <td>기업 사무실 및 매장 (50평 내외)</td>
+                            <td>협의 (별도 산출)</td>
+                            <td>실측 후 맞춤 컨설팅 적용</td>
+                            <td>실측 후 맞춤 컨설팅 적용</td>
+                            <td>서버랙 특수 이전, 파티션 분해 재배치</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">주요 구간별 5톤 기준 포장이사 예상 금액 비교 (단위: 만 원)</div>
+                <div class="bar-group">
+                    <div class="bar-label">수도권 to 제주시</div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div>
+                    <div class="bar-value">390만 원</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar-label">수도권 to 서귀포시</div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div>
+                    <div class="bar-value">420만 원</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar-label">경상권 to 제주시</div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div>
+                    <div class="bar-value">320만 원</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar-label">호남권 to 제주시</div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 63%;"></div></div>
+                    <div class="bar-value">280만 원</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar-label">제주 도내 동지역 이동</div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 36%;"></div></div>
+                    <div class="bar-value">160만 원</div>
+                </div>
+            </div>
+
+            <p>
+                위 가격표는 기본 부가세 및 사다리차 장비 사용료, 특수 피아노나 금고 등 중량물 운반비가 제외된 기준 금액입니다. 
+                사다리차의 경우 제주의 건축 구조 및 바람 세기에 따라 불가능한 경우가 많으며, 내부 엘리베이터 사용 승인 여부에 따라 아파트 관리사무소에 납부하는 엘리베이터 이용료(약 10만 원에서 25만 원)가 별도로 부가됩니다.
+            </p>
+        </section>
+
+        <!-- Section 3: Regional Characteristics -->
+        <section id="section-regions">
+            <h2>제주 권역별 지리적 특성과 현장 진입 여건 비교</h2>
+            <p>
+                제주도는 한라산을 중심으로 북부의 제주시와 남부의 서귀포시로 양분되며, 동부와 서부의 읍면 지역은 도로 폭과 주거 형태가 매우 다채롭습니다. 
+                이사짐센터를 섭외하기 전 본인이 이주할 주소지의 환경적 한계와 접근성을 정확히 파악해야 당일 추가 비용 발생을 원천 차단할 수 있습니다.
+            </p>
+
+            <h3>제주시 도심권역 (노형동, 연동, 아라동, 이도동, 외도동, 삼화지구)</h3>
+            <p>
+                노형동과 연동은 제주 최대의 고층 아파트 밀집 지구이자 상업 중심지입니다. 도로 정체가 잦고 지상 주차면이 협소하므로 5톤 화물차 진입 공간 확보가 최우선입니다. 
+                아라동과 이도동, 화북동 삼화지구 역시 대단지 아파트가 다수 포진해 있어 대부분 사다리차보다는 지하주차장 진입 가능 여부(진입 높이 2.3m 제한 확인)와 엘리베이터 예약이 견적의 결정적 요소로 작용합니다.
+            </p>
+
+            <h3>제주시 서부 및 동부 읍면 (애월읍, 한림읍, 조천읍, 구좌읍)</h3>
+            <p>
+                애월읍 유수암리나 한림읍 협재리, 조천읍 선흘리 등은 전원형 단독주택과 타운하우스, 다세대 빌라가 많습니다. 
+                이들 지역은 제주 특유의 돌담(돌담길 폭 협소)과 방풍림 삼나무, 전신주 전선 등이 낮게 드리워져 있어 대형 5톤 탑차가 집 마당 앞까지 진입하지 못하는 경우가 빈번합니다. 
+                이럴 때는 큰 길가에 대형차를 대고 1톤 소형 트럭으로 짐을 실어 나르는 이른바 릴레이 피더(Feeder) 운송이 전개되어 추가 인건비와 소형차 사용료가 추가될 수 있습니다.
+            </p>
+
+            <h3>서귀포시 도심 및 혁신도시, 대정읍 영어교육도시, 안덕면</h3>
+            <p>
+                서귀포시 동홍동, 서홍동 및 서귀포혁신도시권은 비교적 신축 아파트 단지가 정연하게 갖추어져 있으나, 제주항에서 평화로나 번영로를 넘어 남하해야 하므로 제주시내 이동 대비 내륙 육상 운임이 10만 원에서 20만 원가량 추가 산출됩니다. 
+                특히 대정읍 구억리와 보성리 일원의 영어교육도시는 국제학교 학기 개학 및 방학 시즌(12월~1월, 7월~8월)에 대규모 이주 수요가 집중되면서 이사 물량이 폭주하는 성수기 현상이 두드러집니다. 
+                이 시기에는 최저가 싼곳을 찾기보다 안정적인 정시 일정을 소화할 수 있는 브랜드를 선점하는 것이 계약 파기를 예방하는 현명한 방법입니다.
+            </p>
+        </section>
+
+        <!-- Section 4: Community insights & Digital optimization -->
+        <section id="section-strategies">
+            <h2>제주이사 다이렉트 견적 절약법과 온라인 커뮤니티 분석</h2>
+            <p>
+                포장이사 견적을 최소화하는 가장 핵심적인 테크닉은 온라인 플랫폼과 다이렉트 방문 견적 시스템의 병행 운용입니다. 
+                최근 인터넷과 모바일 앱 및 어플 환경이 고도화되면서 네이버 플레이스 리뷰, 카카오톡 오픈채팅, 토스 이사 견적 알림 서비스 등을 통해 실시간 비교 견적을 손쉽게 수집할 수 있습니다. 
+                또한 제미나이(Gemini)나 챗지피티(ChatGPT) 같은 인공지능 AI 도구에 본인의 가전 규격과 방 사진을 업로드하여 대략적인 톤수를 사전 계산해보는 스마트 소비자가 급증하는 추세입니다.
+            </p>
+
+            <h3>커뮤니티(디시, 펨코, 보배드림) 실사용자 내돈내산 후기 종합</h3>
+            <p>
+                디시인사이드 부동산 갤러리와 나홀로제주 갤러리, 보배드림, 에펨코리아(펨코) 등 대형 온라인 커뮤니티의 실사용자 내돈내산 후기를 분석해보면 공통된 주의사항이 드러납니다. 
+                첫째, 너무 저렴한곳만을 고집하다가 계약 당일 인부들이 현장에서 추가 식대나 수고비를 요구하거나, 짐을 다 싣고 나서 해상 화물비가 예상보다 많이 나왔다며 추가 금액을 청구하는 사례가 자주 보고됩니다. 
+                둘째, 유튜브나 인스타그램, 페이스북, 텔레그램 등 소셜 채널의 과장 광고 속 사은품, 현금지원, 상품권 지급 등 화려한 프로모션 혜택에 현혹되어 정작 화물 운송 배상책임보험 여부를 확인하지 않는 실수를 경계해야 한다는 목소리가 지배적입니다.
+            </p>
+
+            <div class="warning-panel">
+                <strong>피해 방지 핵심 원칙:</strong> 구두 계약은 법적 효력을 증명하기 매우 까다롭습니다. 반드시 서면 또는 전자 계약서를 작성하고 관인 계약서 상단에 추가 비용 없음이라는 특약 문구를 명시해야 합니다. 만약 일방적인 계약 취소 시 위약금과 환불 조항이 어떻게 규정되어 있는지 꼼꼼히 대조하십시오.
+            </div>
+
+            <h3>비용을 극적으로 줄이는 5가지 실전 노하우</h3>
+            <ul>
+                <li><strong>불필요한 대형 가구 과감한 처분:</strong> 제주도는 습도가 높아 노후된 압축 목재 가구는 이동 중 손상되거나 이전 후 곰팡이가 피기 쉽습니다. 폐기물 스티커를 발부받아 육지에서 사전 폐기하는 것만으로도 차량 톤수를 5톤에서 2.5톤으로 줄여 100만 원 이상의 요금을 절약할 수 있습니다.</li>
+                <li><strong>손 없는 날과 월말 피하기:</strong> 음력 손 없는 날이나 주말, 2월과 3월 이사철 성수기에는 요금이 20%에서 35%까지 할증됩니다. 평일 화요일, 수요일, 목요일을 택하면 가장 저렴한 최저가 구간에 접근 가능합니다.</li>
+                <li><strong>차량 탁송과 이사 화물의 복합 견적:</strong> 자가용을 제주로 가져갈 때 별도의 로드 탁송이나 카캐리어를 부르는 대신, 이사짐센터와 연계된 항만 화물 결합 상품을 활용하면 10만 원 이상의 복합 할인 혜택을 챙길 수 있습니다.</li>
+                <li><strong>다이렉트 방문 견적 3곳 이상 확보:</strong> 사진 견적만으로는 지하주차장 층고나 장롱 분해의 난이도를 측정할 수 없어 당일 마찰의 원인이 됩니다. 반드시 현장 방문 견적을 요청해 공통 기준표로 순위와 장단점을 비교하십시오.</li>
+                <li><strong>인터넷 및 가전 결합 약정 확인:</strong> 주거 이전 시 신규 인터넷 약정(1년, 12개월 또는 3년 약정)이나 무약정 여부를 검토하고, 결합 할인 지원금이나 상품권 혜택을 활용하여 이사 비용의 일부를 상쇄하는 방법도 효과적입니다.</li>
+            </ul>
+        </section>
+
+        <!-- Section 5: Contract Checklist -->
+        <section id="section-checklist">
+            <h2>화물 안전과 권리 보장을 위한 필수 계약 체크리스트</h2>
+            <p>
+                제주이사는 장거리 해상 수송이 수반되므로 화물 파손 및 분실 발생 시 책임 소재를 가리는 과정이 일반 이사보다 복잡합니다. 
+                신뢰성 있는 업체를 선별하기 위해서는 지자체에 공식 등록된 허가업체인지, 그리고 보증보험에 정상 가입되어 있는지 반드시 검증해야 합니다.
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>점검 항목</th>
+                            <th>확인 방법 및 법적 근거</th>
+                            <th>주의 및 조치 사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>화물자동차 운송주선사업 허가증</td>
+                            <td>정부24 또는 지자체 교통행정과 유선 확인</td>
+                            <td>무허가 불법 주선업체 이용 시 사고 발생 시 법적 구제 곤란</td>
+                        </tr>
+                        <tr>
+                            <td>적재물 배상책임보험 가입 여부</td>
+                            <td>보험증권 사본 요청 및 보상 한도액 확인 (5천만 원 이상 권장)</td>
+                            <td>선박 흔들림에 따른 가전 파손 보상 가능 여부 특약 확인</td>
+                        </tr>
+                        <tr>
+                            <td>계약금 비율 및 환불 조건</td>
+                            <td>공정거래위원회 이사화물 표준약관 대조</td>
+                            <td>계약금은 통상 견적액의 10% 이내로 책정하며 영수증 수령 필수</td>
+                        </tr>
+                        <tr>
+                            <td>선박 결항 시 비상 프로토콜</td>
+                            <td>계약서 특약 조항 기재 (보관 이사 전환 기준)</td>
+                            <td>기상 악화로 인한 지연 시 일일 보관료 사전 협의</td>
+                        </tr>
+                        <tr>
+                            <td>현장 투입 인력 구성</td>
+                            <td>전문 정직원 비율 및 외국인 근로자 숙련도 확인</td>
+                            <td>주방 정리 전문 여성 도우미 포함 여부 체크</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                만약 작업 완료 후 가구 긁힘이나 전자제품 작동 불능이 발견된다면 현장에서 즉시 작업 팀장과 함께 확인서를 작성하고 고해상도 사진을 촬영해 두어야 합니다. 
+                대금이 전액 입금되고 인부들이 철수한 이후에는 인과관계 입증이 어려워지므로, 최종 대금 결제 전 중요 물품 상태를 점검하는 것이 내 권리를 지키는 확실한 방법입니다.
+            </p>
+        </section>
+
+        <!-- Section 6: FAQ -->
+        <section id="section-faq">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <div class="faq-item">
+                <div class="faq-question">Q. 승용차나 SUV 차량도 이삿짐과 함께 선박으로 보낼 수 있나요?</div>
+                <div class="faq-answer">
+                    네, 가능합니다. 이사 화물 트럭 자체가 카페리에 실려 가므로 차량을 동일한 배편에 차량 탁송 형식으로 선적하거나, 별도의 전문 카캐리어 업체를 통해 목포나 여수항에서 픽업하여 제주항 및 거주지로 배송할 수 있습니다. 
+                    이사짐센터와 연계하여 패키지로 신청하면 개별 신청 대비 운임 할인 혜택을 제공받을 수 있습니다.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q. 날씨가 나빠서 배가 뜨지 않으면 이삿짐은 어디에 보관되나요?</div>
+                <div class="faq-answer">
+                    풍랑주의보나 태풍 등 해상 기상 악화로 카페리가 결항될 경우, 화물은 연안 항만 물류창고(목포항, 완도항 등) 또는 안전하게 통제된 밀폐형 탑차 컨테이너 내부에 대기 보관됩니다. 
+                    해상 운송 재개 즉시 우선 선적되며, 천재지변으로 인한 지연은 양측 면책 사유에 해당하나 기본 보관료 협약 여부를 사전에 계약서로 확인해두어야 합니다.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q. 보관이사를 해야 할 경우 비용 계산은 어떻게 되나요?</div>
+                <div class="faq-answer">
+                    제주도 현지 주택의 입주 일자가 맞지 않아 보관이 필요한 경우 짐을 싣고 내리는 작업이 2회 발생하므로 일반 이사비용의 약 1.7배에서 2배의 운임이 발생하며, 일일 컨테이너 보관료(5톤 기준 일 15,000원~25,000원)가 일수만큼 합산 청구됩니다. 
+                    제주의 고온다습한 기후를 감안하여 온습도 제어가 가능한 전문 보관창고를 갖춘 업체를 선택하는 것이 권장됩니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Interactive Quote Application Form -->
+        <section id="section-calculator">
+            <h2>제주이사 실시간 맞춤 견적 신청 및 비용 계산</h2>
+            <p>
+                세부 정보를 입력하시면 제주 운송 네트워크 허가 업체들을 통해 
+                불필요한 거품을 걷어낸 실시간 최저가 맞춤 견적 및 상세 컨설팅 정보를 회신해 드립니다.
+            </p>
+
+            <form class="quote-form-wrapper" action="#" method="POST" onsubmit="event.preventDefault(); alert('견적 상담 신청이 정상 접수되었습니다. 전문 상담원이 순차적으로 연락드립니다.');">
+                <div class="form-grid">
+                    <div>
+                        <label for="user-name">신청자 성함 <span class="required-badge">(필수)</span></label>
+                        <input type="text" id="user-name" name="name" required placeholder="예: 김제주">
+                    </div>
+                    <div>
+                        <label for="user-phone">연락처 전화번호 <span class="required-badge">(필수)</span></label>
+                        <input type="tel" id="user-phone" name="phone" required placeholder="010-0000-0000">
+                    </div>
+
+                    <div>
+                        <label for="move-type">이사 유형 구분 <span class="required-badge">(필수)</span></label>
+                        <select id="move-type" name="move_type" required>
+                            <option value="">선택하십시오</option>
+                            <option value="inland_to_jeju">육지에서 제주로 (내륙 진입)</option>
+                            <option value="jeju_to_inland">제주에서 육지로 (내륙 복귀)</option>
+                            <option value="jeju_local">제주 도내 이동 (시내·외 이전)</option>
+                            <option value="office">사무실 및 상업공간 이전</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="housing-type">주거 및 건물 형태 <span class="required-badge">(필수)</span></label>
+                        <select id="housing-type" name="housing_type" required>
+                            <option value="">선택하십시오</option>
+                            <option value="apt">아파트</option>
+                            <option value="officetel">오피스텔</option>
+                            <option value="villa">빌라 및 다세대</option>
+                            <option value="house">단독주택 및 전원주택</option>
+                            <option value="commercial">사무실 및 점포</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="origin-area">출발지 권역 <span class="required-badge">(필수)</span></label>
+                        <input type="text" id="origin-area" name="origin" required placeholder="예: 서울 강남구 또는 제주시 노형동">
+                    </div>
+
+                    <div>
+                        <label for="dest-area">도착지 권역 <span class="required-badge">(필수)</span></label>
+                        <input type="text" id="dest-area" name="destination" required placeholder="예: 서귀포시 대정읍 또는 제주시 아라동">
+                    </div>
+
+                    <div>
+                        <label for="move-date">이사 예정일자 <span class="required-badge">(필수)</span></label>
+                        <input type="date" id="move-date" name="target_date" required>
+                    </div>
+
+                    <div>
+                        <label for="size-pyeong">주거 평형대 <span class="required-badge">(필수)</span></label>
+                        <select id="size-pyeong" name="size_pyeong" required>
+                            <option value="">선택하십시오</option>
+                            <option value="under_15">15평 미만 (원룸, 투룸)</option>
+                            <option value="20s">20평형대 (전용 59㎡ 내외)</option>
+                            <option value="30s">30평형대 (전용 84㎡ 내외)</option>
+                            <option value="40_over">40평형대 이상 대형</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="ladder-needed">사다리차 사용 희망 여부</label>
+                        <select id="ladder-needed" name="ladder">
+                            <option value="unknown">현장 실측 후 판단</option>
+                            <option value="yes">사다리차 이용 희망</option>
+                            <option value="no">엘리베이터 및 계단 작업</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="car-shipment">차량 탁송 병행 여부</label>
+                        <select id="car-shipment" name="car_shipment">
+                            <option value="none">신청 안함 (화물만 운송)</option>
+                            <option value="sedan">승용차 1대 동시 탁송</option>
+                            <option value="suv">SUV/RV 1대 동시 탁송</option>
+                            <option value="multiple">2대 이상 차량 탁송</option>
+                        </select>
+                    </div>
+
+                    <div class="form-full">
+                        <label for="additional-memo">추가 요청사항 및 특수 화물 기재</label>
+                        <textarea id="additional-memo" name="memo" rows="4" placeholder="붙박이장 분해설치, 돌침대, 피아노, 와인셀러 등 특수 품목이나 진입로 협소 여부를 적어주시면 더욱 정밀한 견적 계산이 가능합니다."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">제주이사 전문 무료 비교 견적 및 상담 신청</button>
+            </form>
+        </section>
+
+        <!-- Section 8: Authoritative External Resources -->
+        <section class="external-links">
+            <h2>공식 신뢰 기관 및 공인 물류 정보 링크</h2>
+            <p>공정하고 투명한 계약을 체결하기 위해 관계 부처 및 공공기관의 공식 규정과 표준약관을 직접 확인하십시오.</p>
+            <ul>
+                <li>
+                    <a href="https://www.jeju.go.kr/" target="_blank" rel="noopener noreferrer">제주특별자치도청 공식 포털</a>: 
+                    도내 주거 전입 신고 절차, 폐기물 배출 처리 안내 및 자치법규 확인
+                </li>
+                <li>
+                    <a href="https://www.kca.go.kr/" target="_blank" rel="noopener noreferrer">한국소비자원 (KCA)</a>: 
+                    소비자분쟁해결기준, 이사화물 표준약관 및 운송 중 파손 피해구제 접수 가이드
+                </li>
+                <li>
+                    <a href="https://www.its.go.kr/" target="_blank" rel="noopener noreferrer">국가교통정보센터 (ITS)</a>: 
+                    전국 주요 고속도로 물류 소통 상황 및 연안 항만 교통 연계 정보 확인
+                </li>
+            </ul>
+        </section>
     </main>
-  </body>
-</html>
+
+  
+
+</div>
+
+  
